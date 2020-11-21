@@ -3,8 +3,8 @@ const github = require('@actions/github');
 
 try {
   // `who-to-greet` input defined in action metadata file
-  const repoConfig = core.getInput('repoConfig');
-  console.log(JSON.stringify(repoConfig));
+  const repoToken = core.getInput('repo-token');
+  console.log('bearer ',repoToken);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
