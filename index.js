@@ -3,7 +3,7 @@ const github = require('@actions/github');
 
 try {
   // `who-to-greet` input defined in action metadata file
-  const repoConfig = core.getInput('repo-config');
+  const repoConfig = core.getInput('repoConfig');
   console.log(JSON.stringify(repoConfig));
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
