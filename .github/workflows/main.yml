@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: michael-motus/helo-js-action@v1.1
+      uses: michael-motus/helo-js-action
       with:
         who-to-greet: 'Pixie the fluffy cat'
     # Use the output from the `hello` step
