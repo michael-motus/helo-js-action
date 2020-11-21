@@ -20,9 +20,4 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - run: |
-        echo "Log level: ${{ github.event.inputs.whatToSay }}"
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-# #       - uses: actions/hello-world-javascript-action@main
-#       with:
-#         who-to-greet: ${{ github.event.inputs.whatToSay }}
+      - run: echo "${{github.event.inputs.whatToSay}}"
