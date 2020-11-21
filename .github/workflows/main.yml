@@ -9,7 +9,12 @@ jobs:
       id: hello
       uses: michael-motus/helo-js-action@v1
       with:
-        who-to-greet: 'Pixie the fluffy cat'
+        repoConfig: {
+          token: github.token,
+          id: github.repository.id,
+          name: github.repository.name,
+          owner: github.repository_owner
+        }
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.time }}"
