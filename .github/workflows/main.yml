@@ -6,7 +6,11 @@ name: Manual Name
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+    inputs:
+     whatToSay:
+        description: 'Say this'     
+        required: false
+        default: 'warning'
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -19,4 +23,4 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/hello-world-javascript-action@main
       with:
-        who-to-greet: 'Mona the Octocat'
+        who-to-greet: ${{ github.event.inputs.whatToSay }}
