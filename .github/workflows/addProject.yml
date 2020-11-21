@@ -23,4 +23,5 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - run: echo "${{github.event.inputs.projectParent}}" + ":" + " ${{github.event.inputs.projectName}}"
+      - run: echo "${{github.event.inputs.projectParent}} : ${{github.event.inputs.projectName}}"
+      - run: echo "${{Secrets.GITHUB_TOKEN}}
