@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: michael-motus/helo-js-action@v2
+      uses: michael-motus/helo-js-action@v1
       with:
         repo-token: github.token
     # Use the output from the `hello` step
