@@ -8,9 +8,9 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: michael-motus/helo-js-action@v1
+      uses: michael-motus/helo-js-action@v2
       with:
         repo-token: github.token
     # Use the output from the `hello` step
     - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      run: echo "The time was ${{ steps.hello.outputs.repo }}"
