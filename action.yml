@@ -9,6 +9,10 @@ inputs:
     description: 'name of the label'
     required: true
     default: 'triage'
+  repo-id:  # id of input
+    description: 'info for repo'
+    required: true
+    default: 'ego'
   repo-name:  # id of input
     description: 'info for repo'
     required: true

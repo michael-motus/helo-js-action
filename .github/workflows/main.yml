@@ -17,6 +17,7 @@ jobs:
       uses: michael-motus/helo-js-action@main
       with:
         repo-token: ${{secrets.GITHUB_TOKEN}}
+        reop-id:${{github.event.repository.id}}
         repo-name: ${{github.event.repository.name}}
         repo-owner: ${{github.event.repository.owner.login}}
         issue-number: ${{github.event.issue.number}}
