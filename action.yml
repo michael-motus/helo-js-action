@@ -1,14 +1,26 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  repo-token:  # id of input
-    description: 'token for repo'
+  issue-number:  # input: issue number
+    description: 'number of the issue'
     required: true
-    default: 'null shh quiet'
-  repo-info:  # id of input
+    default: '1'
+  new-label:  # input: new label name
+    description: 'name of the label'
+    required: true
+    default: 'triage'
+  repo-name:  # id of input
     description: 'info for repo'
     required: true
-    default: 'who/what'
+    default: 'what'
+  repo-owner:  # id of input
+    description: 'info for repo'
+    required: true
+    default: 'who'
+  repo-token:  # id of input
+    description: 'info for repo'
+    required: true
+    default: 'shhh'
 outputs:
   repo: # id of output
     description: 'The time we greeted you'

@@ -16,7 +16,10 @@ jobs:
       uses: michael-motus/helo-js-action@main
       with:
         repo-token: ${{secrets.GITHUB_TOKEN}}
-        repo-info: ${{github.repository}}
+        repo-name: ${{github.event.repository.name}}
+        repo-owner: ${{github.event.repository.owner.login}}
+        issue-number: ${{github.event.issue.number}}
+        new-label: ${{github.event.label.name}}
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.repo }}"

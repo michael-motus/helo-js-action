@@ -1,42 +1,35 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const { isNull } = require('util');
 
 const githubApi = require('./GithubGraphApi');
 // const motus = require("./motus");
-var repoConfig = {
-      id : null,
-      // name : null,
-      // owner : null,
-      token : null,
-  // id: "MDEwOlJlcG9zaXRvcnkzMTQzOTQyNjY=",
-  name: "helo-js-action",
-  owner:  "michael-motus",
-  // token:"6dc0b11b5f007352b5ce99804c10ad56571c204d",
-}
+
 
 async function action (){
+  var repoConfig = {
+    id: null,
+    name: 'empty',
+    owner: 'you',
+    token: null
+  };
+
   try {
-    // var repoString = github.context.repository;
-    // repoString = repoString.split("/");
-    // repoConfig.owner = repoString[0];
-    // repoConfig.name = repoString[1];
     console.log("config: " + JSON.stringify(repoConfig));
+    repoConfig.name = core.getInput('repo-name', {required: true});
+    repoConfig.owner = core.getInput('repo-owner', {required: true});
     repoConfig.token = core.getInput('repo-token', {required: true});
-    var repoInfo = core.getInput('repo-info', {required: true});
-    console.log("input: " + repoInfo);
-    repoInfo = repoInfo.split("/");
-    repoConfig.owner = repoInfo[0];
-    repoConfig.name = repoInfo[1];
     console.log("config: " + JSON.stringify(repoConfig));
+    var issueNumber = core.getInput('issue-number', {required: true});
+    issueNumber = JSON.parse(issueNumber);
+    console.log(issueNumber);
+    var stageLabel = core.getInput('new-label', {required: true});
+    stageLabel = JSON.parse(stageLabel);
+    console.log(stageLabel);
+
+    var issue = await githubApi.getIssueByNumber(issueNumber);
+    console.log("Issue is:\n",JSON.stringify(issue));
    
-    const response = await githubApi.getRepoInfo(repoConfig);
-    console.log(JSON.stringify(response));
-    const time = (new Date()).toTimeString();
-    core.setOutput("repo", JSON.stringify(response));
-    // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
-    console.log(`The event payload: ${payload}`);
+    core.setOutput("repo", JSON.stringify(issue));
   } catch (error) {
     core.setFailed(error.message);
   }
