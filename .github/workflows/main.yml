@@ -8,13 +8,13 @@ jobs:
     steps:
     - name: Install npm
       run: npm install
+    - run: echo "Git hub context ${{toJson(github.repository)}}"
     - name: Hello action step
       id: hello
       uses: michael-motus/helo-js-action@main
       with:
         repo-token: ${{secrets.GITHUB_TOKEN}}
-        repo-info: ${{github.repository}}
+        repo-info: ${{toJson(github.repository)}}
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.repo }}"
-    - run: echo "Git hub context ${{toJson(github.repository)}}"
