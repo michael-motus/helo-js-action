@@ -193,6 +193,7 @@ async function setup(){
     console.log("config: " + JSON.stringify(repoConfig));
     repoConfig.name = core.getInput('repo-name', {required: true});
     repoConfig.owner = core.getInput('repo-owner', {required: true});
+    repoConfig.id = core.getInput('repo-id', {required: true});
     repoConfig.token = core.getInput('repo-token', {required: true});
     console.log("config: " + JSON.stringify(repoConfig));
 
