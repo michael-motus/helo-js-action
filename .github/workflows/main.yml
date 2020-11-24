@@ -12,7 +12,7 @@ jobs:
       id: hello
       uses: michael-motus/helo-js-action@main
       with:
-        repo-token: secrets.GITHUB_TOKEN
+        repo-token: ${{secrets.GITHUB_TOKEN}}
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.repo }}"
