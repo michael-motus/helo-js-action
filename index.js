@@ -198,8 +198,8 @@ async function setup(){
     console.log("config: " + JSON.stringify(repoConfig));
 
     for(const label of labels) {
-        console.log(repo_id, ", ", JSON.stringify(label));
-        const result = await githubApi.addRepoLabel(repo_id, label);
+        console.log(repoConfig.id, ", ", JSON.stringify(label));
+        const result = await githubApi.addRepoLabel(repoConfig.id, label);
         console.log("label result: ", JSON.stringify(result));
     };
     for(const project of projects) {
