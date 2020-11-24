@@ -197,9 +197,10 @@ async function setup(){
     repoConfig.token = core.getInput('repo-token', {required: true});
     console.log("config: " + JSON.stringify(repoConfig));
 
+    // const sanity = await githubApi.getRepoInfo(repoConfig)
     for(const label of labels) {
-        console.log(repoConfig.id, ", ", JSON.stringify(label));
-        const result = await githubApi.addRepoLabel(repoConfig.id, label);
+        console.log("adding: ", JSON.stringify(label));
+        const result = await githubApi.addRepoLabel(repoConfig, label);
         console.log("label result: ", JSON.stringify(result));
     };
     for(const project of projects) {
@@ -207,10 +208,10 @@ async function setup(){
         console.log("project result: ", JSON.stringify(resultProject));
         var projID = resultProject.id;
         console.log(projID);
-        // for(const column of columns) {
-        //     const resultColumn = await githubApi.addProjectColumn(resultProject.id, column.name)
-        //     console.log("project result: ", JSON.stringify(resultColumn));               
-        // }
+        for(const column of columns) {
+            const resultColumn = await githubApi.addProjectColumn(repoConfig, resultProject.id, column.name)
+            console.log("project result: ", JSON.stringify(resultColumn));               
+        }
     }
   } catch (err) {
       console.log("failed", err.request)
