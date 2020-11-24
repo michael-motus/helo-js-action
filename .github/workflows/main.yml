@@ -1,6 +1,8 @@
 on: #[push]
-  workflow_dispatch:
-  
+  # workflow_dispatch:
+  issues:
+    types: [labeled]
+    
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
@@ -8,7 +10,7 @@ jobs:
     steps:
     - name: Install npm
       run: npm install
-    - run: echo "Git hub context ${{toJson(github.repository)}}"
+    - run: echo "Git hub context ${{toJson(github.event)}}"
     - name: Hello action step
       id: hello
       uses: michael-motus/helo-js-action@main
