@@ -6,10 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Dump GitHub context
-      env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-          run: echo "$GITHUB_CONTEXT"
     - name: Install npm
       run: npm install
     - name: Hello action step
@@ -20,3 +16,4 @@ jobs:
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.repo }}"
+      run: echo "Git hub context ${{toJson(github)}}"
