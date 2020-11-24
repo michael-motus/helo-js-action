@@ -6,12 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+    - run: npm install
     - name: Hello world action step
       id: hello
-      uses: michael-motus/helo-js-action@v2
+      uses: michael-motus/helo-js-action@main
       with:
         repo-token: github.token
     # Use the output from the `hello` step
-    - run: npm install
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.repo }}"
