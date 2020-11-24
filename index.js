@@ -8,7 +8,7 @@ var repoConfig = {
       id : null,
       // name : null,
       // owner : null,
-      token : github.context.token,
+      token : github.token,
   // id: "MDEwOlJlcG9zaXRvcnkzMTQzOTQyNjY=",
   name: "helo-js-action",
   owner:  "michael-motus",
