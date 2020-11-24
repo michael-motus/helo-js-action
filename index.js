@@ -17,7 +17,8 @@ const repoConfig = {
 async function action (){
   try {
     
-    console.log(JSON.stringify(repoConfig));
+    console.log("context: " + JSON.stringify(github.context));
+    console.log("config: " + JSON.stringify(repoConfig));
   
     const response = await githubApi.getRepoInfo(repoConfig);
     console.log(JSON.stringify(response));
