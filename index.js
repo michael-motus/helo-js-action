@@ -20,10 +20,8 @@ async function action (){
     repoConfig.token = core.getInput('repo-token', {required: true});
     console.log("config: " + JSON.stringify(repoConfig));
     var issueNumber = core.getInput('issue-number', {required: true});
-    issueNumber = JSON.parse(issueNumber);
     console.log(issueNumber);
     var stageLabel = core.getInput('new-label', {required: true});
-    stageLabel = JSON.parse(stageLabel);
     console.log(stageLabel);
 
     var issue = await githubApi.getIssueByNumber(issueNumber);
