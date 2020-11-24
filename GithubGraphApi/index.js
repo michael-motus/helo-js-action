@@ -1,6 +1,6 @@
-const {graphql} = require("@octokit/graphql");
 const query = require('./query');
 const mutation = require('./mutation');
+const {graphql} = require('@octokit/graphql');
 
 async function getIssueByNumber(repo, issueNumber) {
     const queryVariables = Object.assign({},{
