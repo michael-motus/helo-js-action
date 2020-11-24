@@ -5,8 +5,12 @@ inputs:
     description: 'token for repo'
     required: true
     default: 'null shh quiet'
+  repo-info:  # id of input
+    description: 'info for repo'
+    required: true
+    default: 'who/what'
 outputs:
-  time: # id of output
+  repo: # id of output
     description: 'The time we greeted you'
 runs:
   using: 'node12'
