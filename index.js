@@ -5,7 +5,7 @@ const githubApi = require('./GithubGraphApi');
 // const motus = require("./motus");
 
 
-async function action (){
+async function colunmUpdate (){
   var repoConfig = {
     id: null,
     name: 'empty',
@@ -33,5 +33,7 @@ async function action (){
     core.setFailed(error.message);
   }
 }
-
+async function action(){
+  console.log("this shouldn't run");
+}
 action();
