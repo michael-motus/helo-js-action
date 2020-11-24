@@ -4,10 +4,10 @@ const github = require('@actions/github');
 const githubApi = require('./GithubGraphApi');
 // const motus = require("./motus");
 const repoConfig = {
-      id : github.context.repo.id,
-      name : github.context.repo.name,
-      owner : github.context.repo.owner,
-      token : github.context.repo.token,
+      id : github.context.repository.id,
+      name : github.context.repository.license.name,
+      owner : github.context.repository.owner.login,
+      token : github.context.token,
   // id: "MDEwOlJlcG9zaXRvcnkzMTQzOTQyNjY=",
   // name: "helo-js-action",
   // owner:  "michael-motus",
@@ -17,7 +17,7 @@ const repoConfig = {
 async function action (){
   try {
     
-    console.log("context: " + JSON.stringify(github.context));
+    console.log("context: " + JSON.stringify(github.con));
     console.log("config: " + JSON.stringify(repoConfig));
   
     const response = await githubApi.getRepoInfo(repoConfig);
