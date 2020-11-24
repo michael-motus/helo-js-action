@@ -24,7 +24,7 @@ async function action (){
     var stageLabel = core.getInput('new-label', {required: true});
     console.log(stageLabel);
 
-    var issue = await githubApi.getIssueByNumber(issueNumber);
+    var issue = await githubApi.getIssueByNumber(repoConfig, issueNumber);
     console.log("Issue is:\n",JSON.stringify(issue));
    
     core.setOutput("repo", JSON.stringify(issue));
