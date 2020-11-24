@@ -17,11 +17,12 @@ var repoConfig = {
 
 async function action (){
   try {
-    repoInfo = github.context.repository.split("/");
-    repoConfig.owner = repoInfo[0];
-    repoConfig.name = repoInfo[1];
+    var repoString = github.context.repository;
+    repoString = repoString.split("/");
+    repoConfig.owner = repoString[0];
+    repoConfig.name = repoString[1];
     
-    console.log("context: " + JSON.stringify(github.con));
+    console.log("context: " + JSON.stringify(github.context));
     console.log("config: " + JSON.stringify(repoConfig));
   
     const response = await githubApi.getRepoInfo(repoConfig);
