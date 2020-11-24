@@ -8,7 +8,7 @@ var repoConfig = {
       id : null,
       // name : null,
       // owner : null,
-      token : github.token,
+      token : null,
   // id: "MDEwOlJlcG9zaXRvcnkzMTQzOTQyNjY=",
   name: "helo-js-action",
   owner:  "michael-motus",
@@ -21,10 +21,8 @@ async function action (){
     // repoString = repoString.split("/");
     // repoConfig.owner = repoString[0];
     // repoConfig.name = repoString[1];
-    
-    console.log("context: " + JSON.stringify(github.context));
     console.log("config: " + JSON.stringify(repoConfig));
-  
+    repoConfig.token = core.getInput('repo-token', {required: true});
     const response = await githubApi.getRepoInfo(repoConfig);
     console.log(JSON.stringify(response));
     const time = (new Date()).toTimeString();
