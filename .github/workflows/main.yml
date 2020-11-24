@@ -6,8 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - run: npm install
-    - name: Hello world action step
+    - name: Dump GitHub context
+      env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+          run: echo "$GITHUB_CONTEXT"
+    - name: Install npm
+      run: npm install
+    - name: Hello action step
       id: hello
       uses: michael-motus/helo-js-action@main
       with:
