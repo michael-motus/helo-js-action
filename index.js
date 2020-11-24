@@ -23,6 +23,12 @@ async function action (){
     // repoConfig.name = repoString[1];
     console.log("config: " + JSON.stringify(repoConfig));
     repoConfig.token = core.getInput('repo-token', {required: true});
+    var repoInfo = core.getInput('repo-info', {required: true});
+    repoInfo = repoInfo.split("/");
+    repoConfig.owner = repoInfo[0];
+    repoConfig.name = repoInfo[1];
+    console.log("config: " + JSON.stringify(repoConfig));
+   
     const response = await githubApi.getRepoInfo(repoConfig);
     console.log(JSON.stringify(response));
     const time = (new Date()).toTimeString();
