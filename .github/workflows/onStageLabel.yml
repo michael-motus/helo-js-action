@@ -1,0 +1,26 @@
+on: #[push]
+  # workflow_dispatch:
+  issues:
+    types: [labeled]
+    # @todo: filter stage labels
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - name: Install npm
+      run: npm install
+    - run: echo "Git hub context ${{toJson(github.event)}}"
+    - name: Hello action step
+      id: hello
+      # uses: <owner>/<repo>@<version/branch>
+      uses: michael-motus/helo-js-action/.github/actions/setStageColumn@main
+      with:
+        repo-token: ${{secrets.GITHUB_TOKEN}}
+        repo-id: ${{github.event.repository.node_id}}
+        repo-name: ${{github.event.repository.name}}
+        repo-owner: ${{github.event.repository.owner.login}}
+        issue-number: ${{github.event.issue.number}}
+        new-label: ${{github.event.label.name}}
+
