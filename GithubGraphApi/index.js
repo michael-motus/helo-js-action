@@ -28,14 +28,15 @@ async function getIssueByNumber(repo, issueNumber) {
 }
 
 async function getColumnByName(columns, name) {
+    console.log("get "+name+" from "+JSON.stringify(columns));
     for(const column of columns){
         console.log(column.name);
         if (column.name.toLowerCase() === name.toLowerCase()){
-            console.log("Column is: \n",JSON.stringify(column));
+            console.log("matched: \n",JSON.stringify(column));
             return column;
         } 
     };
-    console.log("Column not found");
+    console.log(name+" not found");
     return null;
 }
 

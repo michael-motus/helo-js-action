@@ -81,7 +81,7 @@ async function action (){
           const project = await githubApi.getProjectByNumber(repoConfig, card.project.number);
           console.log("Card is: \n",JSON.stringify(card));
           console.log("Project is: \n",JSON.stringify(project));
-          const column = await githubApi.getColumnByName(repoConfig, project.columns.nodes, stageLabel);
+          const column = await githubApi.getColumnByName(project.columns.nodes, stageLabel);
           const check = await githubApi.setCardColumn(repoConfig, card.id, column.id);
           console.log("Move result: ", JSON.stringify(check));
       }
