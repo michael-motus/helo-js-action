@@ -78,7 +78,7 @@ async function action (){
       // - mavenlink integration
       const cards = issue.projectCards.nodes;
       for(const card of cards){
-          const project = await githubApi.getProjectByNumber(repoInfo, card.project.number);
+          const project = await githubApi.getProjectByNumber(repoConfig, card.project.number);
           console.log("Card is: \n",JSON.stringify(card));
           console.log("Project is: \n",JSON.stringify(project));
           const column = await githubApi.getColumnByName(project.columns.nodes, stageLabel);
