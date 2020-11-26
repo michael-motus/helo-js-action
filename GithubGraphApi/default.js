@@ -149,6 +149,5 @@ module.exports = {
   statusLabels,
   needLabels,
   stages,
-  typeLabels,
-  disciplineLabels,  
+  typeLabels,  
 }
