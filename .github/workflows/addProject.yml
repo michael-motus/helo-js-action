@@ -22,7 +22,7 @@ jobs:
     steps:
     - run: ls -a
         
-    - name: Install npm environment
+  #  - name: Install npm environment
   #    run: npm install
   #  - run: npm list
       
