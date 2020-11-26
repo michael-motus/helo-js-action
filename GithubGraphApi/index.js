@@ -1,6 +1,7 @@
 const query = require('./query');
 const mutation = require('./mutation');
 const {graphql} = require('@octokit/graphql');
+const motusDefault = require('./default');
 
 async function getIssueByNumber(repo, issueNumber) {
     const queryVariables = Object.assign({},{
@@ -213,5 +214,6 @@ module.exports = {
     addRepoLabel,
     addRepoProject,
     addProjectColumn,
-    getRepoInfo
+    getRepoInfo,
+    motusDefault
 }

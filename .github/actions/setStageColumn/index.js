@@ -2,52 +2,6 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const githubApi = require('../../../GithubGraphApi');
 
-const stages= [
-  {
-    "name": "INVESTIGATION",
-  },      
-  {
-    "name": "IMPLEMENTATION",
-  },       
-  {
-    "name": "DESIGN REVIEW",
-  },       
-  {
-    "name": "TESTING",
-  },
-  {
-    "name": "RELEASED",
-  },  
-];
-
-const stageLabels = [
-  {
-    "color": "14C4AD",
-    "description": "This is an issue being investigated",
-    "name": "INVESTIGATION",
-  },      
-  {
-    "color": "7C7CCF",
-    "description": "This is an issue being implmemented",
-    "name": "IMPLEMENTATION",
-  },       
-  {
-    "color": "999900",
-    "description": "This is an issue in desgin review",
-    "name": "DESIGN REVIEW",
-  },       
-  {
-    "color": "177373",
-    "description": "This is an issue being tested",
-    "name": "TESTING",
-  },
-  {
-    "color": "2EB237",
-    "description": "This is an issue ready for release",
-    "name": "RELEASED",
-  },       
-];
-
 async function action (){
   var repoConfig = {
     id: null,
