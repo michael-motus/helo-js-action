@@ -20,8 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to add a project
     steps:
+    - run: ls -a
+        
     - name: Install npm environment
       run: npm install
+    - run: npm list
+      
     - run: echo "Git hub context ${{toJson(github.event)}}"
     - name: add project to repo
       id: add-project
