@@ -62,12 +62,12 @@ const statusLabels = [
     "name": "2: Reopened",
   },
   {
-    "color": "bf7fbf",
+    "color": "7fbf7f",
     "description": "issue ready for, or being worked on",
     "name": "2: In Progress",
   },
   {
-    "color": "f7bfbf  ",
+    "color": "f77f7f",
     "description": "issue is blocked, waiting on EPL action",
     "name": "2: Blocked",
   },
