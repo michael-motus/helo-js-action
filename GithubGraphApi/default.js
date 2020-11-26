@@ -105,12 +105,12 @@ const statusLabels = [
       "name": "3: Document",
     },       
   {
-    "color": "d5765d",
+    "color": "1ddb76",
     "description": "Issue addresses intended behaviour or functionality",
     "name": "3: Feature",
   },       
   {
-    "color": "db1d1d",
+    "color": "db1d3a",
     "description": "Issue addresses unintended behaviour or functionality",
     "name": "3: Bugs",
   },       
