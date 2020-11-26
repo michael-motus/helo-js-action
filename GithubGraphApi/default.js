@@ -67,7 +67,7 @@ const statusLabels = [
     "name": "2: In Progress",
   },
   {
-    "color": "f77f7f",
+    "color": "f75f5f",
     "description": "issue is blocked, waiting on EPL action",
     "name": "2: Blocked",
   },
@@ -77,22 +77,22 @@ const statusLabels = [
     "name": "2: Fixed",
   },
   {
-    "color": "bfdff7",
+    "color": "5f9ff7",
     "description": "issue is resolved",
     "name": "2: Resolved",
   },
   {
-    "color": "bfdff7",
+    "color": "5f9ff7",
     "description": "issue is a duplicate",
     "name": "2: Duplicate",
   },
   {
-    "color": "bfdff7",
+    "color": "5f9ff7",
     "description": "issue is cannot be reporduced",
     "name": "2: Can't Reproduce",
   },
   {
-    "color": "bfdff7",
+    "color": "5f9ff7",
     "description": "issue is not going to be addressed",
     "name": "2: Won't Fix",
   },
