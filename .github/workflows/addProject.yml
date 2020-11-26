@@ -7,21 +7,29 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-     projectName:
+     project-name:
+        description: 'a project name'
         required: true
-        default: 'project-name'
-     projectParent:
-        description: 'parent project'
+        default: 'Design Stages'
+     project-body:
+        description: 'a project description'
         required: true
-        default: ''
+        default: 'This project has design stage columns'
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  add-project-job:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    name: A job to add a project
     steps:
-      - run: echo "${{github.event.inputs.projectParent}} - ${{github.event.inputs.projectName}}"
-      - run: echo "${{ secrets.GITHUB_TOKEN }}"
+    - name: Install npm environment
+      run: npm install
+    - run: echo "Git hub context ${{toJson(github.event)}}"
+    - name: add project to repo
+      id: add-project
+      # uses: <owner>/<repo>/<script>@<release/branch>
+      uses: michael-motus/helo-js-action/.github/actions/addproject@main
+      with:
+        repo-token: ${{secrets.GITHUB_TOKEN}}
+        repo-id: ${{github.event.repository.node_id}}
+        repo-name: ${{github.event.repository.name}}
+        repo-owner: ${{github.event.repository.owner.login}}
