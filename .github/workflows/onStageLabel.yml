@@ -1,5 +1,6 @@
-on: #[push]
-  # workflow_dispatch:
+name: Set Column
+
+on: 
   issues:
     types: [labeled]
     # @todo: filter stage labels

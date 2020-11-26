@@ -1,4 +1,6 @@
-on: #[push]
+name: Init Repo Labels
+
+on: 
   workflow_dispatch:
 
 jobs:
